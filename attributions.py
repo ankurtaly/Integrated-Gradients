@@ -4,7 +4,6 @@ import tensorflow as tf
 
 from cStringIO import StringIO
 from IPython.display import  Image, display, HTML
-from google3.pyglib import gfile
 
 MODEL_LOC='./InceptionModel/tensorflow_inception_graph.pb'
 LABELS_LOC='./InceptionModel/imagenet_comp_graph_label_strings.txt'
@@ -15,7 +14,7 @@ def load_model():
   graph = tf.Graph()
   cfg = tf.ConfigProto(gpu_options={'allow_growth':True})
   sess = tf.InteractiveSession(graph=graph, config=cfg)
-  graph_def = tf.GraphDef.FromString(gfile.Open(MODEL_LOC).read())
+  graph_def = tf.GraphDef.FromString(open(MODEL_LOC).read())
   tf.import_graph_def(graph_def)
   return sess, graph
 
@@ -117,10 +116,10 @@ def main(argv):
   sess, graph = load_model()
 
   # Load the labels vocabulary.
-  labels = np.array(gfile.Open(LABELS_LOC).read().split('\n'))
+  labels = np.array(open(LABELS_LOC).read().split('\n'))
 
   # Load the image.
-  with gfile.Open('/Images/70bfca4555cca92e.jpg') as f:
+  with open('/Images/70bfca4555cca92e.jpg') as f:
     img = f.read()
     img = sess.run(tf.image.decode_jpeg(img))
   show_img(pil_img(img))
