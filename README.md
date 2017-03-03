@@ -18,6 +18,23 @@ is applicable to a variety of deep  networks and has some nice mathematical
 properties. We recommend reading our [paper][icml-submission], presently under
 submission to ICML 2017, for more details.
 
+## Running the code
+The code for generating and visualizing integrated gradients is in a single
+[Jupyter](http://jupyter.org/) notebook --- [attributions.ipynb][attributions-code].
+
+To run the notebook, please follow the following instructions.
+* Clone this repository
+  ```
+  git clone https://github.com/ankurtaly/Attributions
+  ```
+* In the same directory, run the Jupyter notebook server.
+  ```
+  jupyter notebook
+  ```
+  Instructions for installing Jupyter are available [here](http://jupyter.readthedocs.io/en/latest/install.html).
+  Please make sure that you have [TensorFlow][tf], [NumPy][np], and [PIL.Image][pillow] installed for
+  Python 2.7.
+* Open `attributions.ipynb` and run all cells.
 
 ## Visualizations
 
@@ -215,3 +232,6 @@ comparison, we also show a visualization of the gradients at the actual image.
 [incp-paper]:http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Szegedy_Going_Deeper_With_2015_CVPR_paper.pdf
 [icml-submission]:http://104.155.136.4:3000/pdf?id=rJzaDdYxx
 [attributions-code]:https://github.com/ankurtaly/Attributions/blob/master/attributions.ipynb
+[tf]:https://www.tensorflow.org/install/
+[np]:https://docs.scipy.org/doc/numpy/user/install.html
+[PIL.Image]:http://pillow.readthedocs.io/en/3.1.x/installation.html
