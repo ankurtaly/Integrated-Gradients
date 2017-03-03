@@ -24,10 +24,12 @@ The code for generating and visualizing integrated gradients is in a single
 
 To run the notebook, please follow the following instructions.
 * Clone this repository
+  
   ```
   git clone https://github.com/ankurtaly/Attributions
   ```
 * In the same directory, run the Jupyter notebook server.
+  
   ```
   jupyter notebook
   ```
