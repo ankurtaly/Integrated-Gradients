@@ -236,4 +236,4 @@ comparison, we also show a visualization of the gradients at the actual image.
 [attributions-code]:https://github.com/ankurtaly/Attributions/blob/master/attributions.ipynb
 [tf]:https://www.tensorflow.org/install/
 [np]:https://docs.scipy.org/doc/numpy/user/install.html
-[PIL.Image]:http://pillow.readthedocs.io/en/3.1.x/installation.html
+[pillow]:http://pillow.readthedocs.io/en/3.1.x/installation.html
