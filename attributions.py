@@ -119,7 +119,7 @@ def main(argv):
   labels = np.array(open(LABELS_LOC).read().split('\n'))
 
   # Load the image.
-  with open('/Images/70bfca4555cca92e.jpg') as f:
+  with open('./Images/70bfca4555cca92e.jpg') as f:
     img = f.read()
     img = sess.run(tf.image.decode_jpeg(img))
   show_img(pil_img(img))
