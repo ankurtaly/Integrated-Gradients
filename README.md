@@ -213,7 +213,7 @@ comparison, we also show a visualization of the gradients at the actual image.
 <!-- ![5cd2c045c7b2b33a](/Visualizations/Gifs/5cd2c045c7b2b33a.gif) -->
 
 [incp-paper]:http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Szegedy_Going_Deeper_With_2015_CVPR_paper.pdf
-[icml-submission]:http://104.155.136.4:3000/pdf?id=rJzaDdYxx
+[icml-submission]:https://arxiv.org/pdf/1703.01365.pdf
 [attributions-code]:https://github.com/ankurtaly/Attributions/blob/master/attributions.ipynb
 [tf]:https://www.tensorflow.org/install/
 [np]:https://docs.scipy.org/doc/numpy/user/install.html
