@@ -28,12 +28,12 @@ deep models (sparse and dense, text and vision).
 
 ## Relevant papers and slide decks
 
-* [**Axiomatic Attribution for Deep Networks**][icml-paper] -- *Mukund Sundararajan, Ankur Taly, Qiqi Yan* , Proceedings of International Conference on Machine Learning (ICML), 2017
+* [**Axiomatic Attribution for Deep Networks**][icml-paper] -- *Mukund Sundararajan, Ankur Taly, Qiqi Yan*, Proceedings of International Conference on Machine Learning (**ICML**), 2017
   
   This paper introduced the Integrated Gradients method. It presents an axiomatic justification of the method along with applications to various deep networks.
   [Slide deck][icml-slides]
   
-* [**Did the model understand the questions?**][acl-paper] -- *Pramod Mudrakarta, Ankur Taly, Mukund Sundararajan, Kedar Dhamdhere*, Proceedings of Association of Computational Linguistics (ACL), 2018
+* [**Did the model understand the questions?**][acl-paper] -- *Pramod Mudrakarta, Ankur Taly, Mukund Sundararajan, Kedar Dhamdhere*, Proceedings of Association of Computational Linguistics (**ACL**), 2018
   
   This paper discusses an application of integrated gradients for evaluating the robustness of question-answering networks. 
   [Slide deck][acl-slides]
