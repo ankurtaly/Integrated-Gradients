@@ -1,7 +1,7 @@
 # How to use Integrated Gradients (IG)
 
 To use this method, you'll need to:
-*   Identify the [input](#bookmark=id.kvl8ycgudsnq) and [output](#bookmark=id.j4nzl1ex5pwv)
+*   Identify the [input](#input) and [output](#output)
 *   Select a [baseline](#bookmark=id.i3poqshi9thv) to diff the input against
 *   Select the [number of steps](#bookmark=id.m7jmridl6bdr) in the integral approximation
 *   Run [sanity checks](#bookmark=id.gmsvi586senc)
@@ -20,14 +20,14 @@ Integrated Gradients is a systematic technique that attributes a deep model's pr
 That said, IG does not uncover the logic used by the network to combine features, though there are variants of IG that can do this in a limited sense. 
 
 
-## Identifying the output tensor
+## [Identifying the output tensor][output]
 
 *   The attributions must be from the prediction head of the deep learning model.  For models with a sequence output, attributions must be computed separately for each predicted token in the output sequence.
 *   For multi-class classification models, the prediction head is typically a softmax operator on a 'logits' tensor. The attribution must be computed from this softmax output and not the 'logits' tensor.
 *   **Sanity check**: Ensure that the tensor corresponds to a single prediction label. This can be done by checking that the shape of the tensor is of the form <batch,> (instead of <batch, num_labels>)
 
 
-## Identifying the input tensor
+## [Identifying the input tensor][input]
 *   For models with dense input, e.g., images or speech, attribute directly to the base input layer. 
 *   Models with sparse input, e.g., text, first embed the input into a dense tensor, which is  then fed to multi-layer network. Attribution must be performed to this embedding tensor, but before the token embeddings are combined into a single input embedding. 
 *   **Implementation Notes**: Depending on how the network is implemented, getting hold of the embedding tensor might be tricky. If the implementation uses an explicit embedding lookup operation (e.g., tf.nn.embedding_lookup) then we could grep for the operation in the graph and note its output tensor. 

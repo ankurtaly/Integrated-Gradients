@@ -1,6 +1,6 @@
 # Integrated Gradients
-(a.k.a. Path-Integrated Gradients, a.k.a. Axiomatic Attribution for Deep
-Networks)
+(*a.k.a. Path-Integrated Gradients, a.k.a. Axiomatic Attribution for Deep
+Networks*)
 
 **Contact**: integrated-gradients AT gmail.com
 
@@ -22,19 +22,19 @@ the logic of a network, and to give end-user’s some transparency into the reas
 for a network’s prediction.
 
 **Integrated Gradients** is a variation on computing the gradient of the
-prediction output w.r.t. features of the input. Its requires no modification to
+prediction output w.r.t. features of the input. It requires no modification to
 the original network, is simple to implement, and is applicable to a variety of
 deep models (sparse and dense, text and vision).
 
 ## Relevant papers and slide decks
 
-* [**Axiomatic Attribution for Deep Networks**][icml-paper] -- Mukund Sundararajan, Ankur Taly, Qiqi Yan
-  Proceedings of International Conference on Machine Learning (ICML), 2017
+* [**Axiomatic Attribution for Deep Networks**][icml-paper] -- *Mukund Sundararajan, Ankur Taly, Qiqi Yan* , Proceedings of International Conference on Machine Learning (ICML), 2017
+  
   This paper introduced the Integrated Gradients method. It presents an axiomatic justification of the method along with applications to various deep networks.
   [Slide deck][icml-slides]
   
-* [**Did the model understand the questions?**][acl-paper] -- Pramod Kaushik Mudrakarta, Ankur Taly, Mukund Sundararajan, Kedar Dhamdhere
-  Proceedings of Association of Computational Linguistics (ACL), 2018
+* [**Did the model understand the questions?**][acl-paper] -- *Pramod Mudrakarta, Ankur Taly, Mukund Sundararajan, Kedar Dhamdhere*, Proceedings of Association of Computational Linguistics (ACL), 2018
+  
   This paper discusses an application of integrated gradients for evaluating the robustness of question-answering networks. 
   [Slide deck][acl-slides]
 
@@ -47,8 +47,7 @@ for an arbitrary deep network.
 This repository provideds code for implementing integrated gradients for networks
 with image inputs. It is structured as follows:
 * [Integrated Gradients library][intgrad-lib]: Library implementing the core
-integrated gradients algorithmprovides an implementation of the method along
-with tools for
+integrated gradients algorithm.
 * [Visualization library][vis-lib]: Library implementing methods for visualizing
 atributions for image models.
 * [Inception notebook][incp-notebook]: A [Jupyter](http://jupyter.org/) notebook
