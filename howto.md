@@ -1,11 +1,11 @@
 # How to use Integrated Gradients (IG)
 
 To use this method, you'll need to:
-*   Identify the [input](#input) and [output](#output)
-*   Select a [baseline](#bookmark=id.i3poqshi9thv) to diff the input against
-*   Select the [number of steps](#bookmark=id.m7jmridl6bdr) in the integral approximation
-*   Run [sanity checks](#bookmark=id.gmsvi586senc)
-*   [Visualize](#bookmark=id.rtsycjuroxra) the results
+*   Identify the [input](#identifying-the-input-tensor) and [output](#identifying-the-output-tensor)
+*   Select a [baseline](#why-do-you-need-a-baseline) to diff the input against
+*   Select the [number of steps](#tuning-the-number-of-steps-in-the-gradient-approximation) in the integral approximation
+*   Run [sanity checks](#sanity-checking-baselines)
+*   [Visualize](#visualizing-the-attributions) the results
 
 Reference implementation:
 *   [Python Notebook for Inception model](https://github.com/ankurtaly/Integrated-Gradients/blob/master/attributions.ipynb) (object recognition model for images)
@@ -20,14 +20,14 @@ Integrated Gradients is a systematic technique that attributes a deep model's pr
 That said, IG does not uncover the logic used by the network to combine features, though there are variants of IG that can do this in a limited sense. 
 
 
-## [Identifying the output tensor][output]
+## Identifying the output tensor
 
 *   The attributions must be from the prediction head of the deep learning model.  For models with a sequence output, attributions must be computed separately for each predicted token in the output sequence.
 *   For multi-class classification models, the prediction head is typically a softmax operator on a 'logits' tensor. The attribution must be computed from this softmax output and not the 'logits' tensor.
 *   **Sanity check**: Ensure that the tensor corresponds to a single prediction label. This can be done by checking that the shape of the tensor is of the form <batch,> (instead of <batch, num_labels>)
 
 
-## [Identifying the input tensor][input]
+## Identifying the input tensor
 *   For models with dense input, e.g., images or speech, attribute directly to the base input layer. 
 *   Models with sparse input, e.g., text, first embed the input into a dense tensor, which is  then fed to multi-layer network. Attribution must be performed to this embedding tensor, but before the token embeddings are combined into a single input embedding. 
 *   **Implementation Notes**: Depending on how the network is implemented, getting hold of the embedding tensor might be tricky. If the implementation uses an explicit embedding lookup operation (e.g., tf.nn.embedding_lookup) then we could grep for the operation in the graph and note its output tensor. 
@@ -100,9 +100,9 @@ Further, you can view positive attributions in green, and negative ones in red. 
 
 For text-based models, attributions can be visualized using colored text to depict the strength of attributions. E.g. below we use a scale from red (very negative attributions) to green (very positive), while gray color is no attribution.:
 
-**<span style="color:#7e817e;">I<span style="color:#212121;"> <span style="color:#7c837c;">am<span style="color:#212121;"> <span style="color:#7e827e;">feeling<span style="color:#212121;"> <span style="color:#08ff08;">super<span style="color:#212121;"> <span style="color:#639e63;">lucky</span></span></span></span></span></span></span></span></span>**
+<span style="color:#7e817e;">I<span style="color:#212121;"> <span style="color:#7c837c;">am<span style="color:#212121;"> <span style="color:#7e827e;">feeling<span style="color:#212121;"> <span style="color:#08ff08;">super<span style="color:#212121;"> <span style="color:#639e63;">lucky</span></span></span></span></span></span></span></span></span>
 
-**<span style="color:#7a857a;">But<span style="color:#212121;"> <span style="color:#817e7e;">the<span style="color:#212121;"> <span style="color:#926f6f;">results<span style="color:#212121;"> <span style="color:#857a7a;">were<span style="color:#212121;"> <span style="color:#897676;">pretty<span style="color:#212121;"> <span style="color:#f80f0f;">bad</span></span></span></span></span></span></span></span></span></span></span>**
+<span style="color:#7a857a;">But<span style="color:#212121;"> <span style="color:#817e7e;">the<span style="color:#212121;"> <span style="color:#926f6f;">results<span style="color:#212121;"> <span style="color:#857a7a;">were<span style="color:#212121;"> <span style="color:#897676;">pretty<span style="color:#212121;"> <span style="color:#f80f0f;">bad</span></span></span></span></span></span></span></span></span></span></span>
 
 The following code can be used to generate this visualization
 
