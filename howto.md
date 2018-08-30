@@ -40,10 +40,7 @@ That said, IG does not uncover the logic used by the network to combine features
 
 ## Adding a placeholder for analysis:
 
-Sometimes production models take input from a FIFO queue rather than a simple placeholder.
-
-Our code snippets describe how to apply integrated gradients using a placeholder. To see how to replace the FIFO queue with a placeholder in the model graph, see [here](https://docs.google.com/document/d/1pfRNkTJuXw4SqDcmw-T8l7_F0gfr7yR_bpvZfVTM0Q0/edit).
-
+Our code snippets describe how to apply integrated gradients using a placeholder. Sometimes production models take input from a FIFO queue rather than a simple placeholder. In such cases, for ease of analysis, the [TF graph editor API](https://www.tensorflow.org/api_guides/python/contrib.graph_editor) to swap the queue based feed with a simple placeholder feed.
 
 ## Why do you need a baseline?
 
