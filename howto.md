@@ -100,9 +100,7 @@ Further, you can view positive attributions in green, and negative ones in red. 
 
 For text-based models, attributions can be visualized using colored text to depict the strength of attributions. E.g. below we use a scale from red (very negative attributions) to green (very positive), while gray color is no attribution.:
 
-``````html
-<span style="color:#7e817e;">I<span style="color:#212121;"> <span style="color:#7c837c;">am<span style="color:#212121;"> <span style="color:#7e827e;">feeling<span style="color:#212121;"> <span style="color:#08ff08;">super<span style="color:#212121;"> <span style="color:#639e63;">lucky</span></span></span></span></span></span></span></span></span>
-```
+<span style="color:#7e817e;">I<span style="color:#212121;"> <span style="color:#7c837c;">am<span style="color:#212121;"> <span style="color:#7e827e;">feeling<span style="color:#212121;"> <span style="color:#08ff08;">super<span style="color:#212121;"> <span style="color:&#639e63;">lucky</span></span></span></span></span></span></span></span></span>
 
 <span style="color:#7a857a;">But<span style="color:#212121;"> <span style="color:#817e7e;">the<span style="color:#212121;"> <span style="color:#926f6f;">results<span style="color:#212121;"> <span style="color:#857a7a;">were<span style="color:#212121;"> <span style="color:#897676;">pretty<span style="color:#212121;"> <span style="color:#f80f0f;">bad</span></span></span></span></span></span></span></span></span></span></span>
 
