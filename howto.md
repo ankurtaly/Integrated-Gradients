@@ -129,7 +129,7 @@ def visualize_token_attrs(tokens, attrs):
       b = 128 - int(64*attr) 
     else:
       r = 128 + int(64*attr)
-      g = 128 + int(64*attr), 
+      g = 128 + int(64*attr) 
       b = int(-128*attr) + 127
     return r,g,b
 
