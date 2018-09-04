@@ -108,6 +108,8 @@ The following code can be used to generate this visualization
 
 
 ```
+from IPython.display import display, HTML
+
 def visualize_token_attrs(tokens, attrs):
   """
   Visualize attributions for given set of tokens.
