@@ -78,7 +78,13 @@ def integrated_gradients(
   scaled_inputs = [baseline + (float(i)/steps)*(inp-baseline) for i in range(0, steps+1)]
   predictions, grads = predictions_and_gradients(scaled_inputs, target_label_index)  # shapes: <steps+1>, <steps+1, inp.shape>
   
-  avg_grads = np.average(grads[:-1], axis=0)
+  # Use trapezoidal rule to approximate the integral.
+  # See Section 4 of the following paper for an accuracy comparison between
+  # left, right, and trapezoidal IG approximations:
+  # "Computing Linear Restrictions of Neural Networks", Matthew Sotoudeh, Aditya V. Thakur
+  # https://arxiv.org/abs/1908.06214
+  grads = (grads[:-1] + grads[1:]) / 2.0
+  avg_grads = np.average(grads, axis=0)
   integrated_gradients = (inp-baseline)*avg_grads  # shape: <inp.shape>
   return integrated_gradients, predictions
 
