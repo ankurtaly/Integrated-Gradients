@@ -303,12 +303,11 @@ def _compute_ig(sess, input_tensors, embedding_tensor,
     # memory
     num_reps = num_reps
 
-    tensor_values = sess.run('module_apply_tokens/bert/embeddings/add_1:0',
+    tensor_values = sess.run(embedding_tensor,
                              _get_feed_dict(input_tensors,
                                             transformed_input_df))
 
-    tensor_baseline_values = sess.run(
-        'module_apply_tokens/bert/embeddings/add_1:0',
+    tensor_baseline_values = sess.run(embedding_tensor,
         _get_feed_dict(input_tensors, baseline_df))
 
     scaled_embeddings = _get_scaled_inputs(tensor_values[0],
