@@ -10,7 +10,8 @@ def get_tensor(sess, name):
 
 def get_ig_attributions(sess, input_tensors, embedding_tensor,
                         gradient_tensor, output_tensor, transformed_input_df,
-                        baseline_df, tokenizer, max_allowed_error=5):
+                        baseline_df, tokenizer, max_allowed_error=5,
+                        debug=False):
     """ Returns integrated gradients for a single instance input and
         baseline. The
 
@@ -36,6 +37,8 @@ def get_ig_attributions(sess, input_tensors, embedding_tensor,
 
     :param max_allowed_error: max error of ig estimation using efficiency axiom
 
+    :param debug: run in debug mode with logging
+
     :returns a dictionary with a single key 'outputs', mapped
         to a list of two lists, the first one containing the text tokens,
         and the second their corresponding attributions, obtained using the
@@ -48,19 +51,21 @@ def get_ig_attributions(sess, input_tensors, embedding_tensor,
                     gradient_tensor, output_tensor, transformed_input_df,
                     baseline_df, num_reps=num_reps)
     error_percentage = \
-        _get_ig_error(integrated_gradients, baseline_prediction, prediction)
+        _get_ig_error(integrated_gradients, baseline_prediction, prediction,
+                      debug=debug)
 
     while abs(error_percentage) > max_allowed_error:
         num_reps += 5
-        print(f'Num reps is {num_reps}, abs error percentage is '
-              f'{error_percentage}')
+        if debug:
+            print(f'Num reps is {num_reps}, abs error percentage is '
+                  f'{error_percentage}')
         integrated_gradients, baseline_prediction, prediction = \
             _compute_ig(sess, input_tensors, embedding_tensor,
                         gradient_tensor, output_tensor, transformed_input_df,
                         baseline_df, num_reps=num_reps)
         error_percentage = \
             _get_ig_error(integrated_gradients, baseline_prediction,
-                          prediction)
+                          prediction, debug=debug)
 
     integrated_gradients = _project_attributions(tokenizer,
                                                  transformed_input_df,
@@ -248,18 +253,21 @@ def _project_attributions(tokenizer, transformed_input_df, attributions):
         'float').tolist()[1:len(tokens)+1]]}
 
 
-def _get_ig_error(integrated_gradients, baseline_prediction, prediction):
+def _get_ig_error(integrated_gradients, baseline_prediction, prediction,
+                  debug=False):
     sum_attributions = 0
     sum_attributions += np.sum(integrated_gradients)
-    print(f'prediction is {prediction}')
-    print(f'baseline_prediction is {baseline_prediction}')
 
     delta_prediction = prediction - baseline_prediction
-    print(f'delta_prediction is {delta_prediction}')
-    print(f'sum_attributions are {sum_attributions}')
+
     error_percentage = \
         100 * (delta_prediction - sum_attributions) / delta_prediction
-    print(f'Error percentage is {error_percentage}')
+    if debug:
+        print(f'prediction is {prediction}')
+        print(f'baseline_prediction is {baseline_prediction}')
+        print(f'delta_prediction is {delta_prediction}')
+        print(f'sum_attributions are {sum_attributions}')
+        print(f'Error percentage is {error_percentage}')
 
     return error_percentage
 
