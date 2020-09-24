@@ -17,9 +17,9 @@ instance, in an object recognition network, an attribution method could tell us
 which pixels of the image were responsible for a certain label being picked, or
 which words from sentence were indicative of strong sentiment.
 
-Applications range from helping a developer debug over allowing analysts to explore
-the logic of a network to giving end-users some transparency into the reason
-for a network’s prediction.
+Applications include helping developers debug their models, allowing analysts 
+to explore the logic of a model, and giving end-users some transparency into the 
+reason for a network's prediction.
 
 **Integrated Gradients** is a variation on computing the gradient of the
 prediction output w.r.t. features of the input. It requires no modification to
