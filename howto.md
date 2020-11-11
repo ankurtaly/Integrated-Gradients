@@ -57,7 +57,7 @@ Here are some guidelines for selecting baseline depending on the input type:
 
 **Text**: Consider using the all-zero baseline (i.e. using all-zero embedding vector). This may seem unintuitive, but nevertheless works. The reason is that the training process causes the input embeddings of unimportant stop words to have a small norm; these are precisely words that tend to "nothing". Some models constrain embeddings to have unit norm. In these cases, a padding term is an adequate baseline. The  other alternative is to use "stop" words.
 
-**Binary and continuous features**: Some times binary and continuous features are binned and then embedded. In these cases, follow the approach for 'text features above. The other alternative is to use several training data inputs as a baseline and to average the attributions over these.
+**Binary and continuous features**: Sometimes binary and continuous features are binned and then embedded. In these cases, follow the approach for 'text features above. The other alternative is to use several training data inputs as a baseline and to average the attributions over these.
 
 If you have trouble selecting a baseline, reach out to [integrated-gradients@gmail.com](mailto:integrated-gradients@gmail.com).
 
