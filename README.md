@@ -58,7 +58,7 @@ We recommend starting with the notebook. To run the notebook, please follow the 
 * Clone this repository
   
   ```
-  git clone https://github.com/ankurtaly/Attributions
+  git clone https://github.com/ankurtaly/Integrated-Gradients.git
   ```
 * In the same directory, run the Jupyter notebook server.
   
@@ -68,7 +68,7 @@ We recommend starting with the notebook. To run the notebook, please follow the 
   Instructions for installing Jupyter are available [here](http://jupyter.readthedocs.io/en/latest/install.html).
   Please make sure that you have [TensorFlow][tf], [NumPy][np], and [PIL.Image][pillow] installed for
   Python 2.7.
-* Open `attributions.ipynb` and run all cells.
+* Open `ig_inception.ipynb` and run all cells.
 
 <!---
 ## Visualizations
