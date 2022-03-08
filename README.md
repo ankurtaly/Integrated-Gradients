@@ -17,9 +17,9 @@ instance, in an object recognition network, an attribution method could tell us
 which pixels of the image were responsible for a certain label being picked, or
 which words from sentence were indicative of strong sentiment.
 
-Applications range from helping a developer debug, allowing analysts to explore
-the logic of a network, and to give end-user’s some transparency into the reason
-for a network’s prediction.
+Applications include helping developers debug their models, allowing analysts 
+to explore the logic of a model, and giving end-users some transparency into the 
+reason for a network's prediction.
 
 **Integrated Gradients** is a variation on computing the gradient of the
 prediction output w.r.t. features of the input. It requires no modification to
@@ -44,14 +44,14 @@ deep models (sparse and dense, text and vision).
 This [How-To document][howto] describes the steps involved in implementing integrated gradients
 for an arbitrary deep network.
 
-This repository provideds code for implementing integrated gradients for networks
+This repository provides code for implementing integrated gradients for networks
 with image inputs. It is structured as follows:
 * [Integrated Gradients library][intgrad-lib]: Library implementing the core
 integrated gradients algorithm.
 * [Visualization library][vis-lib]: Library implementing methods for visualizing
 atributions for image models.
 * [Inception notebook][incp-notebook]: A [Jupyter](http://jupyter.org/) notebook
-for generating and visualizing atributions for the [Inception (v1)][incp-paper]
+for generating and visualizing attributions for the [Inception (v1)][incp-paper]
 object recognition network.
 
 We recommend starting with the notebook. To run the notebook, please follow the following instructions.
